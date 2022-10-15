@@ -73,7 +73,7 @@ public class TypicodeTest {
 
     @Test
     public void deleteRequest_To_Remove_A_Post_Resource(){
-        String endPoint = "?id=11";
+        String endPoint = "?id=1";
         response = given().
                 spec(requestSpec).
                 when().
