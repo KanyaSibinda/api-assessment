@@ -33,7 +33,7 @@ public class TypicodeTest {
                 when().
                 get();
 
-        response.print();
+        response.then().log().all();
         response.then().assertThat().statusCode(200);
     }
 
@@ -52,8 +52,8 @@ public class TypicodeTest {
     @Test
     public void postRequest_To_Create_A_New_Post_Resource(){
         Map<String, Object> map = new HashMap<>();
-        map.put("title","foo");
-        map.put("body","bar");
+        map.put("title","foo la");
+        map.put("body","bare");
         map.put("userId","1");
 
         JSONObject jsonObject = new JSONObject(map);
@@ -61,7 +61,7 @@ public class TypicodeTest {
         response = given().
                 spec(requestSpec).
                 body(jsonObject.toJSONString()).
-                contentType(ContentType.JSON).
+                contentType(ContentType.JSON.toString()).
                 when().
                 post();
 
@@ -71,14 +71,14 @@ public class TypicodeTest {
 
     @Test
     public void deleteRequest_To_Remove_A_Post_Resource(){
-        String endPoint = "?id=1";
+        String endPoint = "/1";
         response = given().
                 spec(requestSpec).
                 when().
                 delete(endPoint);
 
-        response.print();
-        response.then().statusCode(404);
+        response.then().log().all();
+        response.then().statusCode(200);
 
     }
 }
