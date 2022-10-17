@@ -78,7 +78,7 @@ public class TypicodeTest {
                 delete(endPoint);
 
         response.then().log().all();
-        response.then().statusCode(200);
+        response.then().assertThat().statusCode(200);
 
     }
 }
