@@ -54,7 +54,7 @@ public class TypicodeTest {
         Map<String, Object> map = new HashMap<>();
         map.put("title","foo la");
         map.put("body","bare");
-        map.put("userId","1");
+        map.put("userId",1);
 
         JSONObject jsonObject = new JSONObject(map);
 
